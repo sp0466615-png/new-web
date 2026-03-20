@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scan & Pay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f6f3;
+            padding: 50px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .qr-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 250px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            background: #2d5a27;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #1e3d1b;
+        }
+
+        #productName {
+            color: #2d5a27;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Scan & Pay</h2>
+
+    <div class="qr-box">
+        <img src="qr1.png.jpeg" alt="QR Code">
+
+        <h3 id="productName"></h3>
+        <p>Scan this QR using any UPI app</p>
+
+        <input type="text" id="txnId" placeholder="Enter Transaction ID">
+        <button class="btn" onclick="paymentDone()">Submit Payment</button>
+    </div>
+
+    <!-- 👇 YAHAN SCRIPT LAGAO -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const product = params.get("product");
+
+        if (product) {
+            document.getElementById("productName").innerText = "Product: " + product;
+        }
+    </script>
+
+</body>
+
+</html>

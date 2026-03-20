@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Blog Section Layout */
+.blog-section {
+    padding: 100px 10%;
+    background-color: #ffffff;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* Individual Blog Card */
+.blog-card {
+    background: #fdfdfd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+}
+
+.blog-img {
+    position: relative;
+    height: 330px;
+}
+
+.blog-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: #1a7a8c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.blog-info {
+    padding: 25px;
+}
+
+.blog-info h4 {
+    color: #2d5a27;
+    font-size: 1.25rem;
+    margin-top: -20px;
+}
+
+.blog-info p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Unique Blog Button (Inside Card) */
+.blog-btn {
+    text-decoration: none;
+    color: #1a7a8c;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.blog-btn:hover {
+    gap: 15px; /* Moves the arrow on hover */
+    color: #2d5a27;
+}
+
+/* Main 'Explore All' Button */
+.view-all-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.main-blog-button {
+    display: inline-block;
+    padding: 18px 45px;
+    background-color: #2d5a27;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2);
+    transition: all 0.3s ease;
+}
+
+.main-blog-button:hover {
+    background-color: #1a7a8c;
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(26, 122, 140, 0.3);
+}
+    </style>
+</head>
+<body>
+    <section class="blog-section" id="blog">
+    <div class="blog-header">
+        <span class="tagline">Wellness Insights</span>
+        <h2>From Our Green Journal</h2>
+        <p>Expert tips on nutrition, health, and the power of Moringa.</p>
+    </div>
+
+    <div class="blog-grid">
+        <article class="blog-card">
+            <div class="blog-img">
+                <img src="image10.png" alt="Moringa Benefits">
+                <span class="category">Nutrition</span>
+            </div>
+            <div class="blog-info">
+                <h4>5 Reasons to Start Your Day with Moringa</h4>
+                <p>Discover how this superfood can transform your morning routine and energy levels...</p>
+                <a href="#" class="blog-btn">Read More <span>&rarr;</span></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-img">
+                <img src="image11.png" alt="Healthy Recipes">
+                <span class="category">Lifestyle</span>
+            </div>
+            <div class="blog-info">
+                <h4>Organic Farming: Why It Matters</h4>
+                <p>Understanding the journey of your food from our ethical farms to your kitchen table...</p>
+                <a href="#" class="blog-btn">Read More <span>&rarr;</span></a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <div class="blog-img">
+                <img src="image12.png" alt="Detox Tips">
+                <span class="category">Detox</span>
+            </div>
+            <div class="blog-info">
+                <h4>The Ultimate Natural Detox Guide</h4>
+                <p>Cleanse your body naturally using plant-based antioxidants and pure leaf extracts...</p>
+                <a href="#" class="blog-btn">Read More <span>&rarr;</span></a>
+            </div>
+        </article>
+    </div>
+
+    <div class="view-all-container">
+        <a href="blog.html" class="main-blog-button">Explore All Articles</a>
+    </div>
+</section>
+
+
+</body>
+</html>

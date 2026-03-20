@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ... aapka purana CSS yahan hoga ... */
+
+        /* Shop Section Styling */
+        .shop-section {
+            padding: 60px 20px;
+            background: #fdfdfd;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2d5a27;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(45, 90, 39, 0.2);
+        }
+
+        .product-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: 0.5s;
+        }
+
+        .product-card:hover::after {
+            left: 120%;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d5a27;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background: #2d5a27;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #d4af37;
+            box-shadow: 0 0 10px #d4af37;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="shop-section" id="shop">
+        <h2 class="section-title">Our Organic Collection</h2>
+        <div class="product-grid" id="productGrid">
+        </div>
+    </section>
+
+    <div id="bookingStatus"
+        style="display:none; position:fixed; bottom:20px; right:20px; background:#2d5a27; color:white; padding:15px 25px; border-radius:10px; z-index:1000; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+    </div>
+
+    <script>
+        const products = [
+            { id: 1, name: "Moringa Powder 250g", price: "199" },
+            { id: 2, name: "Organic Green Tea", price: "249" },
+            { id: 3, name: "Natural Honey 500g", price: "450" },
+            { id: 4, name: "Aloe Vera Juice", price: "299" },
+            { id: 5, name: "Ashwagandha Tabs", price: "350" },
+            { id: 6, name: "Chia Seeds 200g", price: "180" },
+            { id: 7, name: "Turmeric Powder", price: "120" },
+            { id: 8, name: "Flax Seeds Organic", price: "150" },
+            { id: 9, name: "Amla Candy Pure", price: "210" },
+            { id: 10, name: "Tulsi Drops 30ml", price: "160" },
+            { id: 11, name: "Neem Capsules", price: "280" },
+            { id: 12, name: "Detox Herbal Tea", price: "399" }
+        ];
+
+        const grid = document.getElementById('productGrid');
+
+        products.forEach(item => {
+            grid.innerHTML += `
+            <div class="product-card">
+                <img src="https://picsum.photos/300/200?random=${item.id}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <div class="price-tag">₹${item.price}</div>
+                <button class="buy-btn" onclick="bookItem('${item.name}')">Shop Now</button>
+            </div>
+        `;
+        });
+
+        function bookItem(itemName) {
+            const status = document.getElementById('bookingStatus');
+            status.innerHTML = `<strong>Success!</strong> ${itemName} is ready to book. Redirecting...`;
+            status.style.display = 'block';
+
+            setTimeout(() => {
+                // 👇 product name URL me bhej rahe hain
+                window.location.href = "payment.html?product=" + encodeURIComponent(itemName);
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>
